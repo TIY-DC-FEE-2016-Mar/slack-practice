@@ -1,20 +1,20 @@
-import floop from 'message-sender'
+import floop from 'message-sender';
 
 export default class SendPostView {
   constructor(el) {
     this.el = el;
 
-    this.notification = '';
+    this.notification = ``;
 
     this.render();
   }
 
   listenForClick() {
-    this.el.querySelector("button").addEventListener("click", () => {
-      const message = this.el.querySelector(".post-message").value;
-      const room = this.el.querySelector(".post-room").value;
+    this.el.querySelector(`button`).addEventListener(`click`, () => {
+      const message = this.el.querySelector(`.post-message`).value;
+      const room = this.el.querySelector(`.post-room`).value;
 
-      console.log("Now sending", message, "to", room)
+      console.log(`Now sending`, message, `to`, room);
 
       floop(room, message).
         then(() => {
@@ -24,8 +24,8 @@ export default class SendPostView {
         catch((e) => {
           this.notification = `There was an error: ${e}`;
           this.render();
-        })
-    })
+        });
+    });
   }
 
   render() {
@@ -34,8 +34,8 @@ export default class SendPostView {
       <p>${this.notification}</p>
       <input class='post-message' type='text' placeholder='Message'>
       <input class='post-room' type='text' placeholder='Room Name'>
-      <button>Post</button>`
-      
+      <button>Post</button>`;
+
     this.listenForClick();
   }
 }
