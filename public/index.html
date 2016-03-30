@@ -25,10 +25,19 @@
   </div>
 
   <script type="text/javascript">
-     const SendPostView = require("send-post-view")
-     
-     const poster = document.querySelector(".send-post")
-     new SendPostView(poster)
+      const SendPostView = require("send-post-view")
+
+      // This part is admittedly a little weird, but we need some
+      // way to call the getHistory function that we've defined in
+      // the message-history-view file. This works; we can revisit
+      // exactly how later.
+      const MessageHistoryView = require("message-history-view")
+      const idunno = new MessageHistoryView()
+      // idunno.getHistory("C0W8YH2QP")
+      idunno.getHistory("slack_practice")
+
+      const poster = document.querySelector(".send-post")
+      new SendPostView(poster)
   </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 import token from 'slack-token'
 
-function findIdForChannel(channelName) {
+export function findIdForChannel(channelName) {
   console.log("looking for", channelName)
 
   const url = `
